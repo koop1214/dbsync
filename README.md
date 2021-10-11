@@ -1,4 +1,4 @@
-Napopravku Database Synchronizer
+Database Synchronizer
 =========================
 Выполняет однонаправленную синхронизацию Bixtrix'овых IBlockElement, IBlockSection и FlatTable в обычные таблицы согласно конфигу `database/sync.json`
 
