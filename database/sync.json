@@ -1,0 +1,268 @@
+{
+  "connection_name": "napopravku",
+  "iblock_element": {
+    "40": {
+      "comment": "Направления",
+      "table": "directions",
+      "syncer": "CommonSyncer",
+      "fields": {
+        "is_active": {
+          "function": "isActive"
+        },
+        "created_at": {
+          "function": "getTimestamp",
+          "args": {
+            "source_field": "DATE_CREATE"
+          }
+        },
+        "created_by": {
+          "default": null,
+          "source_field": "CREATED_BY",
+          "function": "getUserId",
+          "args": {
+            "source_field": "CREATED_BY",
+            "foreign_table": "users",
+            "source_table": "b_user"
+          }
+        },
+        "code": {
+          "source_field": "CODE"
+        },
+        "name": {
+          "source_field": "NAME"
+        },
+        "sort": {
+          "source_field": "SORT"
+        }
+      }
+    },
+    "81": {
+      "comment": "Комментарии к отзывам",
+      "table": "comments",
+      "syncer": "CommonSyncer",
+      "fields": {
+        "updated_at": {
+          "function": "getTimestamp",
+          "args": {
+            "source_field": "TIMESTAMP_X"
+          }
+        },
+        "modified_by": {
+          "source_field": "MODIFIED_BY",
+          "function": "checkTableReferenceValue",
+          "args": {
+            "source_field": "MODIFIED_BY",
+            "foreign_table": "users",
+            "source_table": "b_user"
+          }
+        },
+        "created_at": {
+          "function": "getTimestamp",
+          "args": {
+            "source_field": "DATE_CREATE"
+          }
+        },
+        "created_by": {
+          "function": "checkTableReferenceValue",
+          "args": {
+            "source_field": "CREATED_BY",
+            "foreign_table": "users",
+            "source_table": "b_user"
+          }
+        },
+        "is_active": {
+          "function": "isActive"
+        },
+        "detail_text": {
+          "source_field": "DETAIL_TEXT"
+        },
+        "response_id": {
+          "source_field": "PROPERTY_RESPONSE_VALUE"
+        },
+        "parent_id": {
+          "function": "checkIBlockReferenceValue",
+          "args": {
+            "source_field": "PROPERTY_PARENT_VALUE",
+            "iblock_id": 81
+          }
+        },
+        "clinic_rep_name": {
+          "source_field": "PROPERTY_NAME_VALUE"
+        },
+        "clinic_rep_position": {
+          "source_field": "PROPERTY_WORK_POSITION_VALUE"
+        },
+        "responder_clinic_id": {
+          "function": "checkIBlockReferenceValue",
+          "args": {
+            "source_field": "PROPERTY_CLINIC_VALUE",
+            "iblock_id": 9
+          }
+        },
+        "responder_doctor_id": {
+          "function": "checkIBlockReferenceValue",
+          "args": {
+            "source_field": "PROPERTY_DOCTOR_VALUE",
+            "iblock_id": 16
+          }
+        }
+      },
+      "multi_fields": [],
+      "additional_props": [],
+      "additional_constraits": [
+        "PROPERTY_PARENT_VALUE"
+      ],
+      "additional_tables": [
+        {
+          "comment": "Служебная информация по Комментариям",
+          "table": "comment_infos",
+          "syncer": "CommonSyncer",
+          "fields": {
+            "ip_user": {
+              "source_field": "PROPERTY_IP_USER_VALUE"
+            },
+            "ip_user_proxy": {
+              "source_field": "PROPERTY_IP_USER_PROXY_VALUE"
+            },
+            "comment": {
+              "source_field": "PROPERTY_COMMENT_VALUE"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "iblock_section": {
+    "22": {
+      "comment": "Секция статей Советов",
+      "table": "advice_article_sections",
+      "syncer": "CommonSyncer",
+      "fields": {
+        "is_active": {
+          "function": "isActive"
+        },
+        "name": {
+          "source_field": "NAME"
+        },
+        "code": {
+          "source_field": "CODE"
+        },
+        "seo_title": {
+          "source_field": "UF_ADV_SEO_TITLE"
+        },
+        "seo_description": {
+          "source_field": "UF_ADV_SEO_DESCRIPTI"
+        },
+        "seo_keywords": {
+          "source_field": "UF_ADV_SEO_KEYWORDS"
+        },
+        "created_at": {
+          "function": "getTimestamp",
+          "args": {
+            "source_field": "DATE_CREATE"
+          }
+        },
+        "updated_at": {
+          "function": "getTimestamp",
+          "args": {
+            "source_field": "TIMESTAMP_X"
+          }
+        }
+      }
+    },
+    "92": {
+      "comment": "Секция «Сертификаты для пользователей»",
+      "table": "certificate_groups",
+      "syncer": "CommonSyncer",
+      "fields": {
+        "is_active": {
+          "function": "isActive"
+        },
+        "name": {
+          "source_field": "NAME"
+        },
+        "code": {
+          "source_field": "CODE"
+        },
+        "sort": {
+          "source_field": "SORT"
+        },
+        "created_at": {
+          "function": "getTimestamp",
+          "args": {
+            "source_field": "DATE_CREATE"
+          }
+        },
+        "created_by": {
+          "default": null,
+          "source_field": "CREATED_BY",
+          "function": "getUserId",
+          "args": {
+            "source_field": "CREATED_BY",
+            "foreign_table": "users",
+            "source_table": "b_user"
+          }
+        }
+      },
+      "multi_fields": [],
+      "additional_props": []
+    }
+  },
+  "flat_table": {
+    "b_file": {
+      "comment": "Таблица «File»",
+      "table": "files",
+      "syncer": "CommonSyncer",
+      "fields": {
+        "created_at": {
+          "source_field": "TIMESTAMP_X"
+        },
+        "updated_at": {
+          "source_field": "TIMESTAMP_X"
+        },
+        "subdir": {
+          "source_field": "SUBDIR"
+        },
+        "file_name": {
+          "source_field": "FILE_NAME"
+        },
+        "width": {
+          "source_field": "WIDTH"
+        },
+        "height": {
+          "source_field": "HEIGHT"
+        },
+        "content_type": {
+          "source_field": "CONTENT_TYPE"
+        },
+        "original_name": {
+          "source_field": "ORIGINAL_NAME"
+        },
+        "description": {
+          "source_field": "DESCRIPTION"
+        }
+      },
+      "multi_fields": [],
+      "additional_props": []
+    },
+    "b_group": {
+      "comment": "Таблица «Group»",
+      "table": "access_groups",
+      "syncer": "CommonSyncer",
+      "fields": {
+        "is_active": {
+          "function": "isActive"
+        },
+        "name": {
+          "source_field": "NAME"
+        },
+        "description": {
+          "source_field": "DESCRIPTION"
+        },
+        "code": {
+          "source_field": "STRING_ID"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "napopravku/superdb",
+  "description": "Database Synchronizer",
+  "type": "library",
+  "require": {
+    "illuminate/database": ">= 5.2.*",
+    "illuminate/pagination": ">= 5.2.*",
+    "illuminate/events": ">= 5.2.*"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^3.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "Napopravku\\SuperDB\\": "src/"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "scripts": {
+    "phpcs": "phpcs --standard=phpcs.xml"
+  }
+}
