@@ -1,12 +1,12 @@
 <?php
 
 /**
- * (C) 2019 ООО "Напоправку.ру"
+ * (C) 2019 i.antushevich
  * Date: 18.04.19
  * Time: 16:29
  */
 
-namespace Napopravku\SuperDB\Services\Sync;
+namespace Np\DBTools\Services\Sync;
 
 interface SyncerInterface
 {

@@ -1,12 +1,12 @@
 <?php
 
 /**
- * (C) 2019 ООО "Напоправку.ру"
+ * (C) 2019 i.antushevich
  * Date: 19.04.19
  * Time: 8:25
  */
 
-namespace Napopravku\SuperDB\Services\Sync;
+namespace Np\DBTools\Services\Sync;
 
 use Carbon\Carbon;
 use Illuminate\Database\Capsule\Manager as Capsule;

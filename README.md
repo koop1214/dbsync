@@ -5,7 +5,7 @@ Database Synchronizer
 ```php
 <?php
 
-use Napopravku\SuperDB\Services\Sync\SyncService;
+use Np\DBTools\Services\Sync\SyncService;
 
 $syncService = new SyncService();
 

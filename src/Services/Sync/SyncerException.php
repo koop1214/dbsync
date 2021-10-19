@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Napopravku\SuperDB\Services\Sync;
+namespace Np\DBTools\Services\Sync;
 
 
 class SyncerException extends \LogicException
